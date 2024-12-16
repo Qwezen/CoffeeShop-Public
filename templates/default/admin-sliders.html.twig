@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin-slider{% endblock %}
+
+{% block body %}
+
+    <h1>Liste des Sliders</h1>
+
+    <div class="font-sans overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-100 whitespace-nowrap">
+          <tr>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              ID
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              titre
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              contenu
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Bouton Texte
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              bouton Lien
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Actions
+            </th>
+          </tr>
+        </thead>
+
+        <tbody class="bg-white divide-y divide-gray-200 whitespace-nowrap">
+        {% for slider in sliders %}
+          <tr>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ slider.id }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ slider.titre }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ slider.contenu }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ slider.boutontexte }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ slider.boutonlien }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              <button class="text-blue-600 mr-4">Edit</button>
+              <button class="text-red-600">Delete</button>
+            </td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+
+{% endblock %}

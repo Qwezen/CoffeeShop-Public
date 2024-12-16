@@ -1,0 +1,356 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+  {% block slider %}
+    
+    <section class="bloc-slider">
+    <section class="main swiper mySwiper">
+      <div class="wrapper swiper-wrapper">
+
+      {% for slider in sliders %}
+        <div class="slide swiper-slide">
+          <img src="img/img1.jpg" alt="" class="image" />
+          <div class="image-data">
+            <span class="text">{{ slider.titre }}</span>
+            <h2>
+              {{ slider.contenu }} <br />
+              Coffee and Cocktails
+            </h2>
+            <a href="{{ slider.boutonlien }}" class="button">{{ slider.boutontexte }}</a>
+          </div>
+        </div>
+      {% endfor %}
+
+      {#  <div class="slide swiper-slide">
+          <img src="img/img2.jpg" alt="" class="image" />
+          <div class="image-data">
+            <span class="text">We really like what we do.</span>
+            <h2>
+              Coffee Beans with a <br />
+              Perfect Aroma
+            </h2>
+            <a href="#" class="button">About Us</a>
+          </div>
+        </div>
+
+        <div class="slide swiper-slide">
+          <img src="img/img3.jpg" alt="" class="image" />
+          <div class="image-data">
+            <span class="text">Making Our coffee with lover.</span>
+            <h2>
+              Alluring and Fragrant <br />
+              Coffee Aroma
+            </h2>
+            <a href="#" class="button">About Us</a>
+          </div>
+        </div>   #}
+
+      </div>
+      <div class="swiper-button-next nav-btn"></div>
+      <div class="swiper-button-prev nav-btn"></div>
+      <div class="swiper-pagination"></div>
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+  {% endblock %}
+
+  {% block about %}
+    
+    <div class="about-us">
+    <div class="text-content">
+      <h3>About Us</h3>
+      <h1>There is all about <span>Coffee house</span></h1>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+      </p>
+      <div class="features">
+        <div class="feature-item">
+          <span class="icon">☕</span>
+          <div>
+            <h4>Etiam orci</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="icon">🍵</span>
+          <div>
+            <h4>Turpis faucibus</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="image-content">
+      <img src="img\homme.jpg" alt="Person drinking coffee" class="image-large">
+      {# <img src="img/homme.jpg" alt="Person smiling with coffee" class="image-small"> #}
+    </div>
+  </div>
+
+  {% endblock %}
+  
+  {% block trendslist %}
+
+    <div class="font-[sans-serif] bg-[#eceae3]">
+      <div class="p-4 mx-auto lg:max-w-7xl sm:max-w-full">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-12">Ours Products</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6">
+
+          {% for produit in produits2 %}
+          <div class="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+            <div
+              class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-4 right-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16px" class="fill-gray-800 inline-block" viewBox="0 0 64 64">
+                <path
+                  d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                  data-original="#000000"></path>
+              </svg>
+            </div>
+
+            <div class="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+              <img src="https://readymadeui.com/images/coffee1.webp" alt="Product 1"
+                class="h-full w-full object-contain" />
+            </div>
+
+            <div>
+              <h3 class="text-lg font-extrabold text-gray-800">{{ produit.nom }} Espresso Elegante</h3>
+              <p class="text-gray-600 text-sm mt-2">{{ produit.description }}, Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h4 class="text-lg text-gray-800 font-bold mt-4">{{ produit.prix }}$</h4>
+              <h4 class="text-lg text-gray-800 font-bold mt-4">{{ produit.bestSeller }}= Best Seller</h4>
+            </div>
+          </div>
+          {% endfor %}
+          
+
+          
+
+          
+
+          {#
+
+          <div class="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+            <div
+              class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-4 right-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16px" class="fill-gray-800 inline-block" viewBox="0 0 64 64">
+                <path
+                  d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                  data-original="#000000"></path>
+              </svg>
+            </div>
+
+            <div class="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+              <img src="https://readymadeui.com/images/coffee4.webp" alt="Product 3"
+                class="h-full w-full object-contain" />
+            </div>
+
+            <div>
+              <h3 class="text-lg font-extrabold text-gray-800">Coffee</h3>
+              <p class="text-gray-600 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+            <div
+              class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-4 right-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16px" class="fill-gray-800 inline-block" viewBox="0 0 64 64">
+                <path
+                  d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                  data-original="#000000"></path>
+              </svg>
+            </div>
+
+            <div class="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+              <img src="https://readymadeui.com/images/coffee4.webp" alt="Product 3"
+                class="h-full w-full object-contain" />
+            </div>
+
+            <div>
+              <h3 class="text-lg font-extrabold text-gray-800">Coffee</h3>
+              <p class="text-gray-600 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+            <div
+              class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-4 right-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16px" class="fill-gray-800 inline-block" viewBox="0 0 64 64">
+                <path
+                  d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                  data-original="#000000"></path>
+              </svg>
+            </div>
+
+            <div class="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+              <img src="https://readymadeui.com/images/coffee5.webp" alt="Product 3"
+                class="h-full w-full object-contain" />
+            </div>
+
+            <div>
+              <h3 class="text-lg font-extrabold text-gray-800">Black Coffee</h3>
+              <p class="text-gray-600 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              
+            </div>
+          </div> #}
+
+
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}
+    
+  {% block avisClients %}
+
+    <div class="my-6 font-[sans-serif]">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl font-extrabold text-gray-800">Clints Testimonials</h2>
+        <p class="text-sm text-gray-800 mt-4 leading-relaxed">Veniam proident aute magna anim excepteur et ex consectetur velit ullamco veniam minim aute sit. Elit occaecat officia et laboris Lorem minim. Officia do aliqua adipisicing ullamco in</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-6xl max-md:gap-16 max-md:max-w-lg mx-auto mt-20">
+        <div class="w-full p-6 rounded-lg mx-auto shadow-[0_4px_14px_-6px_rgba(93,96,127,0.4)] bg-[#eceae3] relative">
+          <img src="https://readymadeui.com/team-2.webp" class="w-14 h-14 rounded-full absolute right-0 left-0 mx-auto -top-7" />
+          <div class="mt-6 text-center">
+            <p class="text-sm text-gray-800 leading-relaxed">The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive, and the delivery was impressively prompt at the all time.</p>
+          </div>
+
+          <div class="flex justify-center space-x-1 mt-6">
+            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+            <svg class="w-4 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+          </div>
+
+          <div class="mt-6 text-center">
+            <h4 class="text-sm whitespace-nowrap font-bold">John Doe</h4>
+          </div>
+        </div>
+
+        <div class="w-full p-6 rounded-lg mx-auto shadow-[0_4px_14px_-6px_rgba(93,96,127,0.4)] bg-[#eceae3] relative">
+          <img src="https://readymadeui.com/team-3.webp" class="w-14 h-14 rounded-full absolute right-0 left-0 mx-auto -top-7" />
+          <div class="mt-6 text-center">
+            <p class="text-sm text-gray-800 leading-relaxed">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+          </div>
+
+          <div class="flex justify-center space-x-1 mt-6">
+            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+            <svg class="w-4 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+          </div>
+
+          <div class="mt-6 text-center">
+            <h4 class="text-sm whitespace-nowrap font-bold">Karolina Adair</h4>
+          </div>
+        </div>
+
+        <div class="w-full p-6 rounded-lg mx-auto shadow-[0_4px_14px_-6px_rgba(93,96,127,0.4)] bg-[#eceae3] relative">
+          <img src="https://readymadeui.com/team-4.webp" class="w-14 h-14 rounded-full absolute right-0 left-0 mx-auto -top-7" />
+          <div class="mt-6 text-center">
+            <p class="text-sm text-gray-800 leading-relaxed">The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive, and the delivery was impressively prompt at the all time.</p>
+          </div>
+
+          <div class="flex justify-center space-x-1 mt-6">
+            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+            <svg class="w-4 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+            </svg>
+          </div>
+
+          <div class="mt-6 text-center">
+            <h4 class="text-sm whitespace-nowrap font-bold">Simon Konecki</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}
+
+{% endblock %}

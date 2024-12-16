@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin-produit{% endblock %}
+
+{% block body %}
+
+
+     <h1>Liste des Produits</h1>
+
+
+    <div class="font-sans overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-100 whitespace-nowrap">
+          <tr>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              ID
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Nom
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Description
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Prix
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Note
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              bestSeller
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Famille
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Pays
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Actions
+            </th>
+          </tr>
+        </thead>
+
+        <tbody class="bg-white divide-y divide-gray-200 whitespace-nowrap">
+        {% for produit in produits %}
+          <tr>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ produit.id }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ produit.nom }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ produit.description }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ produit.prix }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ produit.note }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ produit.bestseller }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ produit.famille }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              {{ produit.pays }}
+            </td>
+            <td class="px-4 py-4 text-sm text-gray-800">
+              <button class="text-blue-600 mr-4">Edit</button>
+              <button class="text-red-600">Delete</button>
+            </td>
+          </tr>
+          {% endfor %}
+
+        
+        </tbody>
+      </table>
+    </div>
+
+    
+
+{% endblock %}

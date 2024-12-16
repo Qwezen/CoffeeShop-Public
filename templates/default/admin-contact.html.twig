@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin-contact{% endblock %}
+
+{% block body %}
+
+    <h1>Liste des Contacts</h1>
+
+    <div class="font-sans overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-100 whitespace-nowrap">
+          <tr>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              ID
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Nom
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Email
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Message
+            </th>
+            <th class="px-4 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Actions
+            </th>
+          </tr>
+        </thead>
+
+        <tbody class="bg-white divide-y divide-gray-200 whitespace-nowrap">
+            {% for contact in contacts %}
+            <tr>
+                <td class="px-4 py-4 text-sm text-gray-800">
+                {{ contact.id }}
+                </td>
+                <td class="px-4 py-4 text-sm text-gray-800">
+                {{ contact.nom }}
+                </td>
+                <td class="px-4 py-4 text-sm text-gray-800">
+                {{ contact.email }}
+                </td>
+                <td class="px-4 py-4 text-sm text-gray-800">
+                {{ contact.message }}
+                </td>
+                <td class="px-4 py-4 text-sm text-gray-800">
+                <button class="text-blue-600 mr-4">Edit</button>
+                <button class="text-red-600">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+
+{% endblock %}
